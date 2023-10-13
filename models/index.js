@@ -11,7 +11,7 @@ const sequelize = new Sequelize(
   },
 );
 
-const User = require("./User");
+const User = require("./Author");
 const Comment = require("./Comment");
 const Article = require("./Article");
 
