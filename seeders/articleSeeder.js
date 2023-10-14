@@ -25,6 +25,7 @@ module.exports = async () => {
     articles.push({
       title: faker.lorem.sentence(5),
       content: faker.lorem.paragraphs(),
+      image: faker.image.url(),
     });
   }
 

@@ -12,11 +12,17 @@
     />
   </head>
   <body>
+    <%- include("partials/navbar") %> <%- include("partials/header") %>
     <div class="container">
       <div class="row">
-        <div class="col">
-          <h1>hola mundo!</h1>
+        <% for (article of articles){ %>
+        <div class="col-12">
+          <a href="">
+            <h2><%= article.title %></h2>
+            <p>Creado por pablo el <%= article.author.firstname %></p>
+          </a>
         </div>
+        <% } %>
       </div>
     </div>
   </body>
