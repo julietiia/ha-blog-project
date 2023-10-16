@@ -23,19 +23,17 @@ async function showHome(req, res) {
   res.render("home", { articles });
 }
 
-async function showContact(req, res) {
-  res.render("contact");
+async function showAdmin(req, res) {
+  const articles = await Article.findAll({ include: Author });
+  res.render("admin", { articles });
 }
 
-async function showAboutUs(req, res) {
-  res.render("aboutUs");
-}
 
 // Otros handlers...
 // ...
 
 module.exports = {
   showHome,
-  showContact,
-  showAboutUs,
+  showAdmin,
+
 };

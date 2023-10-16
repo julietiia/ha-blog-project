@@ -1,1 +1,8 @@
-/* Colocar aquí CSS "propio" */
+header {
+    color: red;
+}
+
+footer {
+    display:flex;
+    
+}
