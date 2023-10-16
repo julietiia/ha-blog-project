@@ -1,4 +1,4 @@
-const { Article, Comment } = require("../models");
+const { Author, Article, Comment } = require("../models");
 
 // Display a listing of the resource.
 
@@ -8,9 +8,8 @@ async function index(req, res) {
 
 // Display the specified resource.
 async function show(req, res) {
-  const article = await Article.findByPk(req.params.id, { include: Comment });
-  const title = await Article.findByPk(req.params.id).title;
-  console.log(article);
+  const article = await Article.findByPk(req.params.id, { include: [Author,{model: Comment, include: Author}] });
+  //const title = await Article.findByPk(req.params.id).title;
   res.render("articles", { article });
 }
 
@@ -24,7 +23,6 @@ async function store(req, res) {}
 async function edit(req, res) {
   // const result = await Article.findByPk(req.params.id);
   // res.render("edit", { result });
-
 }
 
 // Update the specified resource in storage.

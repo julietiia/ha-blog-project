@@ -19,17 +19,25 @@ Author.initModel(sequelize);
 Comment.initModel(sequelize);
 Article.initModel(sequelize);
 
+/*
 Author.hasMany(Article, { foreignKey: "authorId" });
-
 Article.belongsTo(Author, { foreignKey: "authorId" });
 
 Author.hasMany(Comment, { foreignKey: "authorId" });
-
 Comment.belongsTo(Author, { foreignKey: "authorId" });
 
 Article.hasMany(Comment, { foreignKey: "articleId" });
-
 Comment.belongsTo(Article, { foreignKey: "articleId" });
+*/
+
+Author.hasMany(Article);
+Article.belongsTo(Author);
+
+Author.hasMany(Comment);
+Comment.belongsTo(Author);
+
+Article.hasMany(Comment);
+Comment.belongsTo(Article);
 
 /**
  * Luego de definir los modelos, se pueden establecer relaciones entre los
