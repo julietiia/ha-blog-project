@@ -20,7 +20,9 @@ const { Article, Author } = require("../models");
 
 async function showHome(req, res) {
   const articles = await Article.findAll({ include: Author });
-  res.render("home", { articles });
+  const title = `Hack the blog`;
+  const text = `El Blog de Hack Academy`;
+  res.render("home", { title, text, articles });
 }
 
 async function showAdmin(req, res) {

@@ -1,13 +1,11 @@
-header {
-    color: red;
-}
-
 footer {
     display:flex;
 
 }
 
-/* .words {
-   
-    
-} */
+header.headerBgImg{
+    height: 500px;
+    background-image: url("../img/notebook.jpeg");
+    background-position: center;
+    background-size: cover;
+}

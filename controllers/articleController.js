@@ -9,8 +9,9 @@ async function index(req, res) {
 // Display the specified resource.
 async function show(req, res) {
   const article = await Article.findByPk(req.params.id, { include: [Author,{model: Comment, include: Author}] });
-  //const title = await Article.findByPk(req.params.id).title;
-  res.render("articles", { article });
+  const title = article.title;
+  const text = `Creado por ${article.author.firstname} ${article.author.lastname} el ${article.createdAt}`;
+  res.render("articles", { title: title, text: text, article });
 }
 
 // Show the form for creating a new resource
