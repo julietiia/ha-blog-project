@@ -1,12 +1,18 @@
-const { Article } = require("../models");
+const { Article, Comment } = require("../models");
 
 // Display a listing of the resource.
+
 async function index(req, res) {
-  const articles = await Article.findAll();
-  res.render("home", { articles: articles });
+
 }
+
 // Display the specified resource.
-async function show(req, res) {}
+async function show(req, res) {
+  const article = await Article.findByPk(req.params.id, { include: Comment });
+  const title = await Article.findByPk(req.params.id).title;
+  console.log(article);
+  res.render("articles", { article });
+}
 
 // Show the form for creating a new resource
 async function create(req, res) {}
@@ -15,7 +21,11 @@ async function create(req, res) {}
 async function store(req, res) {}
 
 // Show the form for editing the specified resource.
-async function edit(req, res) {}
+async function edit(req, res) {
+  // const result = await Article.findByPk(req.params.id);
+  // res.render("edit", { result });
+
+}
 
 // Update the specified resource in storage.
 async function update(req, res) {}

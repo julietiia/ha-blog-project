@@ -39,9 +39,12 @@
               <tr>
                 <th><%=article.id %></th>
                 <td><%=article.title %></td>
-                <td><%=article.content %></td>
                 <td>
-                   <img class="img-fluid" src="<%=article.image %>" alt=""></td>
+                   <p class="words"><%=article.content %></p> 
+                </td>
+                <td>
+                   <img class="img-fluid" src="<%=article.image %>" alt="">
+                </td>
                 <td><%=article.createdAt %></td>
                 <td><%=article.author.firstname + ' ' + article.author.lastname %></td>
                 <td>
