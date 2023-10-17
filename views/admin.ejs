@@ -50,7 +50,11 @@
                 <td><%=article.author.firstname + ' ' + article.author.lastname %></td>
                 <td>
                   <a class="btn btn-primary" href="/articulos/editar/<%= article.id %>">Editar</a>
-                  <a class="btn btn-danger" href="">Eliminar</a>
+                  <a
+                    class="btn btn-danger"
+                    href="/articulos/destruir/<%= article.id %>?_method=DELETE"
+                    >Eliminar</a
+                  >
                 </td>
               </tr>
               <% } %>
