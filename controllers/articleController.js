@@ -37,7 +37,7 @@ async function store(req, res) {
       authorId: fields.authorId,
     });
     // Hacer algo con fields y files...
-    res.redirect("admin");
+    res.redirect("/admin");
   });
 }
 
@@ -51,9 +51,6 @@ async function edit(req, res) {
 // Update the specified resource in storage.
 async function update(req, res) {
   const article = await Article.findByPk(req.params.id);
-  console.log(article);
-  console.log(req.body);
-  //article.update({req.body});
 
   const form = formidable({
     multiples: true,
@@ -62,14 +59,14 @@ async function update(req, res) {
   });
   form.parse(req, async (err, fields, files) => {
     if (err) return res.send("Algo falló intentá más tarde..");
-    await Article.create({
+    await article.update({
       title: fields.title,
       content: fields.content,
       image: files.image.newFilename,
       authorId: fields.authorId,
     });
     // Hacer algo con fields y files...
-    res.redirect("admin");
+    res.redirect("/admin");
   });
 }
 
