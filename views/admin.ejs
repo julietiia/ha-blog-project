@@ -50,11 +50,10 @@
                 <td><%=article.author.firstname + ' ' + article.author.lastname %></td>
                 <td>
                   <a class="btn btn-primary" href="/articulos/editar/<%= article.id %>">Editar</a>
-                  <a
-                    class="btn btn-danger"
-                    href="/articulos/destruir/<%= article.id %>?_method=DELETE"
-                    >Eliminar</a
-                  >
+
+                  <form action="/articulos/destruir/<%= article.id %>?_method=DELETE" method="post">
+                    <button class="btn btn-danger">Eliminar</button>
+                  </form>
                 </td>
               </tr>
               <% } %>
