@@ -1,5 +1,14 @@
 footer {
     display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
 
 }
 
@@ -8,4 +17,14 @@ header.headerBgImg{
     background-image: url("../img/notebook.jpeg");
     background-position: center;
     background-size: cover;
+
 }
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+}
+
