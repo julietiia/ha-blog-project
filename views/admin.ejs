@@ -19,7 +19,7 @@
       <div class="row">
         <div class="col-12">
           <h1>Artículos</h1>
-          <a href="" class="btn btn-success">Nuevo</a>
+          <a href="/articulos/crear" class="btn btn-success">Nuevo</a>
         </div>
         <div class="col-12">
           <table class="table table-striped">
@@ -40,16 +40,17 @@
                 <th><%=article.id %></th>
                 <td><%=article.title %></td>
                 <td>
-                   <p class="words"><%=article.content %></p> 
+                  <p class="words"><%=article.content %></p>
                 </td>
                 <td>
-                   <img class="img-fluid" src="<%=article.image %>" alt="">
+                  <img class="img-fluid" src="<%=article.image.includes("http")? article.image :
+                  `img/${article.image}` %>" alt="" />
                 </td>
                 <td><%=article.createdAt %></td>
                 <td><%=article.author.firstname + ' ' + article.author.lastname %></td>
                 <td>
-                    <a class="btn btn-primary" href="">Editar</a>
-                    <a class="btn btn-danger" href="">Eliminar</a>
+                  <a class="btn btn-primary" href="">Editar</a>
+                  <a class="btn btn-danger" href="">Eliminar</a>
                 </td>
               </tr>
               <% } %>

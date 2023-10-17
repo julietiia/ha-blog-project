@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <form action="/articulos" method="post" class="border p-3" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="title" class="form-label">Título</label>
+        <input type="text" name="title" id="title" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label">Contenido</label>
+        <input type="text" name="content" id="content" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Imagen</label>
+        <input type="file" name="image" id="image" class="form-control" />
+      </div>
+      <label for="authorId" class="form-label">Autor</label>
+      <select name="authorId" id="authorId" class="form-label">
+        <option value="">Selecciona un autor...</option>
+        <% for(const author of authors){ %>
+
+        <option value="<%=author.id%>"><%=author.firstname+" "+author.lastname%></option>
+
+        <%}%>
+      </select>
+      <button type="submit" class="btn btn-outline-dark">Crear articulo</button>
+    </form>
+    <%- include("partials/footer") %>
+  </body>
+</html>
