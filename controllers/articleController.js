@@ -7,9 +7,7 @@ async function index(req, res) {}
 
 // Display the specified resource.
 async function show(req, res) {
-  const article = await Article.findByPk(req.params.id, {
-    include: [Author, { model: Comment, include: Author }],
-  });
+  const article = await Article.findByPk(req.params.id, {include: [Author, { model: Comment, include: Author }]});
   const authors = await Author.findAll();
   const title = article.title;
   const text = `Creado por ${article.author.firstname} ${article.author.lastname} el ${article.createdAt}`;

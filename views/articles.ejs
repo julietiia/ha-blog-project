@@ -18,6 +18,8 @@
     <div class="container">
       <div class="row">
         <div class="col">
+          <p><%= article.content %></p>
+
           <form action="/comentarios" method="POST">
             <label for="authorId" class="form-label">Autor</label>
             <select name="authorId" id="authorId" class="form-label">
@@ -33,11 +35,11 @@
             <input type="hidden" name="articleId" value="<%= article.id  %>" />
             <button type="submit" class="btn btn-outline-dark">Enviar</button>
           </form>
-          <p><%= article.content %></p>
+
           <p>Comments (<%= article.comments.length %>)</p>
           <% for (const comment of article.comments) { %>
           <p><%= comment.content %></p>
-          <p><%= comment.author.firstname %></p>
+          <p><%= comment.author.firstname + ' ' + comment.author.lastname %></p>
           <% } %>
         </div>
       </div>

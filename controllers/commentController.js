@@ -16,7 +16,7 @@ async function store(req, res) {
     articleId: req.body.articleId,
     authorId: req.body.authorId,
   });
-  
+  res.redirect(`/articulos/${req.body.articleId}`);
 }
 
 // Show the form for editing the specified resource.

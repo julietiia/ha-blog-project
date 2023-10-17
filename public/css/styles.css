@@ -12,6 +12,10 @@ footer {
 
 }
 
+a{
+    color:black
+}
+
 header.headerBgImg{
     height: 500px;
     background-image: url("../img/notebook.jpeg");
