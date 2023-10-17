@@ -18,13 +18,11 @@ async function show(req, res) {
 // Show the form for creating a new resource
 async function create(req, res) {
   const authors = await Author.findAll();
-  console.log(authors);
   res.render("new-article", { authors });
 }
 
 // Store a newly created resource in storage.
 async function store(req, res) {
-  console.log("recibí peticion en articulos POST");
   const form = formidable({
     multiples: true,
     uploadDir: __dirname + "/../public/img",
@@ -45,12 +43,35 @@ async function store(req, res) {
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {
-  // const result = await Article.findByPk(req.params.id);
-  // res.render("edit", { result });
+  const article = await Article.findByPk(req.params.id);
+  const authors = await Author.findAll();
+  res.render("edit-article", { article, authors });
 }
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  const article = await Article.findByPk(req.params.id);
+  console.log(article);
+  console.log(req.body);
+  //article.update({req.body});
+
+  const form = formidable({
+    multiples: true,
+    uploadDir: __dirname + "/../public/img",
+    keepExtensions: true,
+  });
+  form.parse(req, async (err, fields, files) => {
+    if (err) return res.send("Algo falló intentá más tarde..");
+    await Article.create({
+      title: fields.title,
+      content: fields.content,
+      image: files.image.newFilename,
+      authorId: fields.authorId,
+    });
+    // Hacer algo con fields y files...
+    res.redirect("admin");
+  });
+}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {}

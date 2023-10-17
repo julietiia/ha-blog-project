@@ -49,7 +49,7 @@
                 <td><%=article.createdAt %></td>
                 <td><%=article.author.firstname + ' ' + article.author.lastname %></td>
                 <td>
-                  <a class="btn btn-primary" href="">Editar</a>
+                  <a class="btn btn-primary" href="/articulos/editar/<%= article.id %>">Editar</a>
                   <a class="btn btn-danger" href="">Eliminar</a>
                 </td>
               </tr>
