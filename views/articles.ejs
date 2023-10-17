@@ -18,6 +18,21 @@
     <div class="container">
       <div class="row">
         <div class="col">
+          <form action="/comentarios" method="POST">
+            <label for="authorId" class="form-label">Autor</label>
+            <select name="authorId" id="authorId" class="form-label">
+              <option value="">Selecciona un autor...</option>
+              <% for(const author of authors){ %>
+              <option value="<%=author.id%>"><%=author.firstname+" "+author.lastname%></option>
+              <% } %>
+            </select>
+            <div class="mb-3">
+              <label for="content" class="form-label">Contenido</label>
+              <textarea type="text" name="content" id="content" class="form-control"></textarea>
+            </div>
+            <input type="hidden" value="<%= article.id  %>" />
+            <button type="submit" class="btn btn-outline-dark">Enviar</button>
+          </form>
           <p><%= article.content %></p>
           <p>Comments (<%= article.comments.length %>)</p>
           <% for (const comment of article.comments) { %>
