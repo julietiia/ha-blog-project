@@ -11,7 +11,6 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-   
   </head>
   <body>
     <%- include("partials/navbar") %> <%- include("partials/header") %>
@@ -21,7 +20,7 @@
         <div class="col-12">
           <a href="articulos/<%= article.id %>">
             <h2><%= article.title %></h2>
-            <p>Creado por <%= article.author.firstname + ` ` + article.author.lastname %></p>
+            <p>Creado por <%= article.user.firstname + ` ` + article.user.lastname %></p>
           </a>
         </div>
         <% } %>

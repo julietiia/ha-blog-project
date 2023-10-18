@@ -11,30 +11,30 @@ const sequelize = new Sequelize(
   },
 );
 
-const Author = require("./Author");
+const User = require("./User");
 const Comment = require("./Comment");
 const Article = require("./Article");
 
-Author.initModel(sequelize);
+User.initModel(sequelize);
 Comment.initModel(sequelize);
 Article.initModel(sequelize);
 
 /*
-Author.hasMany(Article, { foreignKey: "authorId" });
-Article.belongsTo(Author, { foreignKey: "authorId" });
+User.hasMany(Article, { foreignKey: "userId" });
+Article.belongsTo(User, { foreignKey: "userId" });
 
-Author.hasMany(Comment, { foreignKey: "authorId" });
-Comment.belongsTo(Author, { foreignKey: "authorId" });
+User.hasMany(Comment, { foreignKey: "userId" });
+Comment.belongsTo(User, { foreignKey: "userId" });
 
 Article.hasMany(Comment, { foreignKey: "articleId" });
 Comment.belongsTo(Article, { foreignKey: "articleId" });
 */
 
-Author.hasMany(Article);
-Article.belongsTo(Author);
+User.hasMany(Article);
+Article.belongsTo(User);
 
-Author.hasMany(Comment);
-Comment.belongsTo(Author);
+User.hasMany(Comment);
+Comment.belongsTo(User);
 
 Article.hasMany(Comment);
 Comment.belongsTo(Article);
@@ -46,7 +46,7 @@ Comment.belongsTo(Article);
 
 module.exports = {
   sequelize,
-  Author,
+  User,
   Comment,
   Article,
 };

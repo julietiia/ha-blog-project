@@ -21,11 +21,11 @@
           <p><%= article.content %></p>
 
           <form action="/comentarios" method="POST">
-            <label for="authorId" class="form-label">Autor</label>
-            <select name="authorId" id="authorId" class="form-label">
+            <label for="userId" class="form-label">Autor</label>
+            <select name="userId" id="userId" class="form-label">
               <option value="">Selecciona un autor...</option>
-              <% for(const author of authors){ %>
-              <option value="<%=author.id%>"><%=author.firstname+" "+author.lastname%></option>
+              <% for(const user of users){ %>
+              <option value="<%=user.id%>"><%=user.firstname+" "+user.lastname%></option>
               <% } %>
             </select>
             <div class="mb-3">
@@ -39,7 +39,7 @@
           <p>Comments (<%= article.comments.length %>)</p>
           <% for (const comment of article.comments) { %>
           <p><%= comment.content %></p>
-          <p><%= comment.author.firstname + ' ' + comment.author.lastname %></p>
+          <p><%= comment.user.firstname + ' ' + comment.user.lastname %></p>
           <% } %>
         </div>
       </div>

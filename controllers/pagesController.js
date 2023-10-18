@@ -16,20 +16,19 @@
  * no debería existir.
  */
 
-const { Article, Author } = require("../models");
+const { Article, User } = require("../models");
 
 async function showHome(req, res) {
-  const articles = await Article.findAll({ include: Author });
+  const articles = await Article.findAll({ include: User });
   const title = `Hack the blog`;
   const text = `El Blog de Hack Academy`;
   res.render("home", { title, text, articles });
 }
 
 async function showAdmin(req, res) {
-  const articles = await Article.findAll({ include: Author });
+  const articles = await Article.findAll({ include: User });
   res.render("admin", { articles });
 }
-
 
 // Otros handlers...
 // ...
@@ -37,5 +36,4 @@ async function showAdmin(req, res) {
 module.exports = {
   showHome,
   showAdmin,
-
 };

@@ -30,7 +30,7 @@
                 <th>Content</th>
                 <th>Image</th>
                 <th>Created at</th>
-                <th>Author</th>
+                <th>User</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -47,7 +47,7 @@
                   `img/${article.image}` %>" alt="" />
                 </td>
                 <td><%=article.createdAt %></td>
-                <td><%=article.author.firstname + ' ' + article.author.lastname %></td>
+                <td><%=article.user.firstname + ' ' + article.user.lastname %></td>
                 <td>
                   <a class="btn btn-primary" href="/articulos/editar/<%= article.id %>">Editar</a>
 

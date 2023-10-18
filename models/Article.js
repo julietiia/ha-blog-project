@@ -18,7 +18,7 @@ class Article extends Model {
         image: {
           type: DataTypes.STRING,
         },
-        authorId: {
+        userId: {
           type: DataTypes.BIGINT.UNSIGNED,
         },
       },

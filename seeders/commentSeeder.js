@@ -24,8 +24,8 @@ module.exports = async () => {
   for (let i = 0; i < 50; i++) {
     comments.push({
       content: faker.lorem.paragraphs(),
-      articleId: faker.number.int({ min: 1, max: 20}),
-      authorId: faker.number.int({ min: 1, max: 10})
+      articleId: faker.number.int({ min: 1, max: 20 }),
+      userId: faker.number.int({ min: 1, max: 10 }),
     });
   }
 

@@ -32,10 +32,10 @@
                     <label for="image" class="form-label">Edad</label>
                     <input type="file" name="image" value="<%= article.age %>" class="form-control" id="image">
                 </div>
-                <select name="authorId" id="authorId" class="form-label">
+                <select name="userId" id="userId" class="form-label">
                   <option value="">Selecciona un autor...</option>
-                  <% for(const author of authors){ %>
-                    <option value="<%=author.id%>"><%=author.firstname+" "+author.lastname%></option>
+                  <% for(const user of users){ %>
+                    <option value="<%=user.id%>"><%=user.firstname+" "+user.lastname%></option>
                   <%}%>
                 </select>
                 <button type="submit" class="btn btn-success">Modificar</button>

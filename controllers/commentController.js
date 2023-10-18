@@ -14,7 +14,7 @@ async function store(req, res) {
   await Comment.create({
     content: req.body.content,
     articleId: req.body.articleId,
-    authorId: req.body.authorId,
+    userId: req.body.userId,
   });
   res.redirect(`/articulos/${req.body.articleId}`);
 }
