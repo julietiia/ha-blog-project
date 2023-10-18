@@ -19,6 +19,7 @@ const commentRoutes = require("./commentRoutes");
 
 const publicRoutes = require("./publicRoutes");
 const privateRoutes = require("./privateRoutes");
+const authRoutes = require("./authRoutes");
 
 module.exports = (app) => {
   /**
@@ -31,7 +32,7 @@ module.exports = (app) => {
   app.use("/usuarios", userRoutes);
   app.use("/articulos", articleRoutes);
   app.use("/comentarios", commentRoutes);
-
+  app.use("/", authRoutes)
   app.use("/", publicRoutes);
   app.use("/panel", privateRoutes);
 };

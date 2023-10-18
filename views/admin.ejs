@@ -51,7 +51,7 @@
                 <td>
                   <a class="btn btn-primary" href="/articulos/editar/<%= article.id %>">Editar</a>
 
-                  <form action="/articulos/destruir/<%= article.id %>?_method=DELETE" method="post">
+                  <form action="/articulos/<%= article.id %>?_method=DELETE" method="post">
                     <button class="btn btn-danger">Eliminar</button>
                   </form>
                 </td>

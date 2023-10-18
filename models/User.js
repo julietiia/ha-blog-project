@@ -19,6 +19,9 @@ class User extends Model {
           type: DataTypes.STRING,
           unique: true,
         },
+        password: {
+          type: DataTypes.STRING,
+        }
       },
       {
         sequelize,

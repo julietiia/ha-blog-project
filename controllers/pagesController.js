@@ -30,10 +30,15 @@ async function showAdmin(req, res) {
   res.render("admin", { articles });
 }
 
+// async function login(req, res) {
+//   res.render("log-in");
+// }
+
 // Otros handlers...
 // ...
 
 module.exports = {
   showHome,
   showAdmin,
+
 };
