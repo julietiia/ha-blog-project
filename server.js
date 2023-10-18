@@ -23,10 +23,16 @@ app.use(
     saveUninitialized: false, // Docs: "The default value is true, but using the default has been deprecated".
   }),
 );
+
 app.use(passport.session());
 
 passport.use(
-  new LocalStrategy(async (email, password, cb) => {
+  new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password",
+    },
+    async (email, password, cb) => {
     console.log(email, password);
     try {
       const user = await User.findOne({ where: { email: email } });
