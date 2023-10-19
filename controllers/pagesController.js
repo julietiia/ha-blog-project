@@ -40,5 +40,4 @@ async function showAdmin(req, res) {
 module.exports = {
   showHome,
   showAdmin,
-
 };

@@ -21,7 +21,9 @@
 async function showLogin(req, res) {
   res.render("log-in");
 }
-
+async function showRegister(req, res) {
+  res.render("register");
+}
 // Display a listing of the resource.
 async function index(req, res) {}
 
@@ -47,6 +49,7 @@ async function destroy(req, res) {}
 // ...
 
 module.exports = {
+  showRegister,
   showLogin,
   index,
   show,
