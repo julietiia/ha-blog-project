@@ -4,7 +4,6 @@ const authController = require("../controllers/authController");
 const passport = require("passport");
 
 router.get("/login", authController.showLogin);
-router.get("/register", authController.showRegister);
 
 router.post(
   "/login",
@@ -13,5 +12,14 @@ router.post(
     failureRedirect: "/login",
   }),
 );
+
+router.post("/logout", function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+});
 
 module.exports = router;
