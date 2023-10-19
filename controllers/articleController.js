@@ -9,6 +9,8 @@ async function index(req, res) {}
 async function show(req, res) {
   const article = await Article.findByPk(req.params.id, {
     include: [User, { model: Comment, include: User }],
+    // aqui arriba en la linea 10 y 11 estas diciendo que en el modelo Article se busque
+    //  por su id en la tabla ("findByPk") un id que viene del HTTP (req.params.id) y que luego de encotrarlo traiga la informacion que del articulo que incluya o se relacione con el modelo User. Además le dices que haga lo mismo con el modelo Comment pero debes traer solamente al comment que incluya o se relacione a su vez con User. En caso que no hubiera necesidad de esto ultimo se podría escribir  include: [User,  Comment, ].
   });
   const users = await User.findAll();
   const title = article.title;
