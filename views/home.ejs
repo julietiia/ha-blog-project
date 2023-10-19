@@ -16,7 +16,9 @@
     <%- include("partials/navbar") %> <%- include("partials/header") %>
     <div class="container">
       <div class="row">
-        <div class="col"><a href="/register">Regístrate</a></div>
+        <div class="col">
+          <a class="btn btn-primary nav-link active p-2" href="/register">Regístrate</a>
+        </div>
         <% for (article of articles){ %>
         <div class="col-12">
           <a href="articulos/<%= article.id %>">
