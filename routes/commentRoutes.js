@@ -4,6 +4,4 @@ const commentController = require("../controllers/commentController");
 
 router.post("/", commentController.store);
 
-// ...
-
 module.exports = router;
